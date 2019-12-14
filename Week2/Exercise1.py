@@ -12,7 +12,13 @@ Read in the file contents using the .readlines() method. Print out the file cont
 Also print out the type of the variable (you should have a list at this point).
 """
 
+
+#create a banner to have between the various outputs.
+banner = '*' * 80
+
 #open the file
+print()
+print(banner)
 my_version = open("show_version.txt")
 
 #read the file
@@ -20,13 +26,18 @@ show_version = my_version.read()
 
 #print the file to the screen
 print(show_version)
+print(type(show_version))
 
 #close the file after use.
 my_version.close()
+print(banner)
 
 #do the same again, with python context manager
 with open("show_version.txt") as show_version:
-    output = show_version.read()
+    output = show_version.readlines()
 
+print()
+print(banner)
 print(output)
+print(type(show_version))
 
