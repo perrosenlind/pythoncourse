@@ -18,3 +18,30 @@ Use the .join() method to join these first three ARP entries back together as a 
 
 Write this string containing the three ARP entries out to a file named "arp_entries.txt".
 """
+
+from pprint import pprint
+
+
+#Read the file
+with open("show_arp.txt") as show_arp:
+    list_arp = show_arp.readlines()
+
+#Remove the header of the list with a list slice:
+list_arp_noheader = list_arp[1:]
+
+#print the list using pretty print
+pprint(list_arp_noheader)
+
+
+#Sort the list based on ip addresses
+list_arp_noheader.sort()
+
+#grab the first three addresses 
+first_three = list_arp_noheader[:3]
+
+#use .join () to add first_three to the string with '\n' as the separator
+first_three = '\n'.join(first_three)
+
+#Print first_three to file
+with open("arp_entries.txt", "wt") as output:
+    output.write(first_three)
